@@ -8,7 +8,7 @@
 
 
 
-sft <- function(Ft, Fn, K, Tr, alpha)
+sft_calc <- function(Ft, Fn, K, Tr, alpha)
   {
 
   max_val <- pmax(20, (Tr * K * 2/Ft))

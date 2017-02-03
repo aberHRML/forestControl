@@ -1,0 +1,20 @@
+Package: forestControl
+Type: Package
+Title: Approximate False Positive Rate Control in Selection Frequency for Random
+    Forest
+Version: 0.1.0
+Author: Tom Wilson <wilsontom89@gmail.com>,
+    Jasen Finch <jsf9@aer.ac.uk>
+Maintainer: Tom Wilson <wilsontom89@gmail.com>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+Suggests:
+    testthat,
+    randomForest,
+    ranger
+License: MIT
+Encoding: UTF-8
+LazyData: true
+URL: https://github.com/wilsontom/forestControl
+BugReports: https://github.com/wilsontom/forestControl/issues
+RoxygenNote: 5.0.0

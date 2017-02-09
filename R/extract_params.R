@@ -1,10 +1,17 @@
-#' extract
+#' Extract forest parameters
 #'
-#' extact
+#' For a forest model extract the parameters needed to calculate an approximate selection frequency threshold
 #'
+#' @param x a \code{randomForest} or \code{ranger} object
+#' @return a list of four elements
+#' \describe{
+#'     \item{\strong{Fn}}{The number of features considered at each internal node (mtry)}
+#'     \item{\strong{Ft}}{The total number of features in the data set}
+#'     \item{\strong{K}}{The average number of binary tests/internal nodes across the enitre forest}
+#'     \item{\strong{Tr}}{The total number of trees in the forest}
+#'  }
 #'
-#' @param x
-#'
+#' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
 
 
@@ -43,17 +50,5 @@ extract_params <- function(x)
       }
   }
 
-  return(list(Fn = Fn,F = Fe, K = K, Tr = Tr))
+  return(list(Fn = Fn,Ft = Fe, K = K, Tr = Tr))
   }
-
-
-
-
-
-
-
-
-
-
-
-

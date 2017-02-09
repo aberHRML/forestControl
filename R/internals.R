@@ -1,9 +1,3 @@
-#'
-#'
-#'
-#'
-#'
-#'
 #' @keywords internals
 
 nCm_ratio <- function(n1,m1,n2,m2){
@@ -27,7 +21,7 @@ nCm_ratio <- function(n1,m1,n2,m2){
 
 
 
-prob_Ckt <- function(F, N, Fn, K, k){
+prob_Ckt <- function(Ft, N, Fn, K, k){
   p_Ct <- nCm_ratio(Ft - 1, Fn - 1, Ft, Fn)
   p <- p_Ct * dbinom(1,K,1/Fn)
   return(p)
@@ -35,5 +29,5 @@ prob_Ckt <- function(F, N, Fn, K, k){
 
 
 prob_Cft <- function(Ft,N,Fn){
-  return(prob_Ckt(F, N = 0, Fn, 1,1))
+  return(prob_Ckt(Ft, N = 0, Fn,1,1))
 }

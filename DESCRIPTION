@@ -3,11 +3,13 @@ Type: Package
 Title: Approximate False Positive Rate Control in Selection Frequency for Random
     Forest
 Version: 0.1.0
-Author: Tom Wilson <wilsontom89@gmail.com>,
-    Jasen Finch <jsf9@aer.ac.uk>
-Maintainer: Tom Wilson <wilsontom89@gmail.com>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: Tom Wilson <tpw2@aber.ac.uk>,
+        Jasen Finch <jsf9@aer.ac.uk>
+Maintainer: Tom Wilson <tpw2@aber.ac.uk>
+Description: Approximate False Positve Rate Control in Selection Frequecy for Random Forest using the methods described by Ender Konukoglu and Melanie Ganz. Methods for calculating the selection frequency threshold at false positive rate, selection frequency feature selection and feature elimination.
+Imports:
+    ggplot2,
+    ggrepel
 Suggests:
     testthat,
     randomForest,

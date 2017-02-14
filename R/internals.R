@@ -1,5 +1,13 @@
 #' @keywords internals
 
+
+
+is.rf <- function(x)inherits(x, "randomForest")
+
+
+is.ranger <- function(x)inherits(x, "ranger")
+
+
 nCm_ratio <- function(n1,m1,n2,m2){
   if (m1 > n1){
     return(0)

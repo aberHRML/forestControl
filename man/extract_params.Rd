@@ -19,7 +19,7 @@ a list of four elements
  }
 }
 \description{
-For a forest model extract the parameters needed to calculate an approximate selection frequency threshold
+For a forest model (randomForest or ranger) extract the parameters needed to calculate an approximate selection frequency threshold
 }
 \author{
 Tom Wilson \email{tpw2@aber.ac.uk}

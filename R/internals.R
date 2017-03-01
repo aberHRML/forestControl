@@ -1,13 +1,15 @@
+
+
 #' @keywords internals
-
-
-
 is.rf <- function(x)inherits(x, "randomForest")
 
 
+
+#' @keywords internals
 is.ranger <- function(x)inherits(x, "ranger")
 
 
+#' @keywords internals
 nCm_ratio <- function(n1,m1,n2,m2){
   if (m1 > n1){
     return(0)
@@ -29,6 +31,8 @@ nCm_ratio <- function(n1,m1,n2,m2){
 
 
 
+
+#' @keywords internals
 prob_Ckt <- function(Ft, N, Fn, K, k){
   p_Ct <- nCm_ratio(Ft - 1, Fn - 1, Ft, Fn)
   p <- p_Ct * dbinom(1,K,1/Fn)
@@ -36,11 +40,14 @@ prob_Ckt <- function(Ft, N, Fn, K, k){
 }
 
 
+#' @keywords internals
 prob_Cft <- function(Ft,N,Fn){
   return(prob_Ckt(Ft, N = 0, Fn,1,1))
 }
 
 
+
+#' @keywords internals
 fpr_fs_calc <- function(k,Ft,Fn,Tr,K)
 {
 
@@ -72,27 +79,7 @@ fpr_fs_calc <- function(k,Ft,Fn,Tr,K)
 
 
 
-#' Selection Frequency Threshold
-#'
-#' Calculate the selection frequency threshold for a give approximate false postive rate
-#'
-#' @param Ft the total number of features
-#' @param Fn the number of features considered at each internal node (mtry)
-#' @param K the average number of binary tests/internal nodes across the enitre forest
-#' @param Tr the total number of trees in the forest
-#' @param alpha a false positive rate (ie, 0.01)
-#' @return a list of two elements
-#' \describe{
-#'     \item{sft}{the selection frequency threshold}
-#'     \item{probs_atsft}{the esimated false positive rate}
-#' }
-#'
-#' @author Tom Wilson \email{tpw2@@aber.ac.uk}
-#' @author Jasen Finch \email{jsf9@aber.ac.uk}
-#'
-#' @keywords internal
-#' @seealso \code{\link{extract_params}}
-
+#' @keywords internals
 sft_calc <- function(Ft, Fn, K, Tr, alpha)
 {
 

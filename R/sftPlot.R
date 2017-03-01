@@ -6,6 +6,7 @@
 #'
 #' @author Tom Wilson \email{tpw2@aber.ac.uk}
 #' @export
+#' @importFrom ggplot2 ggplot aes geom_point theme_classic guides xlab ylab element_text unit theme
 
 sftPlot <- function(x)
   {
@@ -18,14 +19,14 @@ sftPlot <- function(x)
     thresh[[i]] <- sft(x, alpha = alpha_range[i])$sft
   }
 
-  tmp <- data.frame(thresh, alpha_range = 100 * alpha_range)
-  tmp2 <- tmp
-  tmp2 <- tmp2[c(1,2,3,10),]
-  lab <- paste0("SFT = ", tmp2$thresh," , ", "FPR = ", tmp2$alpha_range, " %")
-  tmp2 <- data.frame(tmp2, lab = lab)
+  alpha_df <- data.frame(thresh, alpha_range = 100 * alpha_range)
+  alpha_df2 <- alpha_df
+  alpha_df2 <- alpha_df2[c(1,2,3,10),]
+  lab <- paste0("SFT = ", alpha_df2$thresh," , ", "FPR = ", alpha_df2$alpha_range, " %")
+  alpha_df2 <- data.frame(alpha_df2, lab = lab)
 
-  ggplot(data = tmp, aes(x = alpha_range, y = thresh)) + geom_point() +
-    geom_label_repel(data = tmp2, aes(x = alpha_range, y = thresh, label = lab, fill = "red", colour = "red"),
+  ggplot(data = alpha_df, aes(x = alpha_range, y = thresh)) + geom_point() +
+    ggrepel::geom_label_repel(data = alpha_df2, aes(x = alpha_range, y = thresh, label = lab, fill = "red", colour = "red"),
                      fontface = 'bold', color = 'white', size = 3,
                      box.padding = unit(0.35, "lines"),
                      point.padding = unit(1, "lines"),

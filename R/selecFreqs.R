@@ -1,8 +1,10 @@
 #' Variable Selection Frequencies
 #'
+#' Extract variable selection frequencies from forest objects
 #'
-#' @param x
-#' @return data.frame
+#' @param x a \code{randomForest} or \code{ranger} object
+#' @return \code{data.frame} of variable selection frequencies
+#'
 #' @export
 
 

@@ -1,6 +1,6 @@
 #' False Postivie Rate Feature Selection
 #'
-#' Calculate the False Positive Rate (FPR) for every feature, using it's selection frequency
+#' Calculate the False Positive Rate (FPR) for each feature using it's selection frequency
 #'
 #' @param x a \code{randomForest} or \code{ranger} object
 #' @return a \code{data.frame} of selection frequencies and their false positive rate

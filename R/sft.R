@@ -1,6 +1,6 @@
 #' Selection Frequency Threshold
 #'
-#' @rdname sft
+#'
 #' @param x a \code{randomForest} or \code{ranger} object
 #' @param alpha a false positive rate (ie, 0.01)
 #' @return a list of two elements

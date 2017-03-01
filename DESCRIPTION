@@ -8,18 +8,19 @@ Author: Tom Wilson <tpw2@aber.ac.uk>,
 Maintainer: Tom Wilson <tpw2@aber.ac.uk>
 Description: Approximate False Positve Rate Control in Selection Frequecy for
     Random Forest using the methods described by Ender Konukoglu and Melanie Ganz.
-    Methods for calculating the selection frequency threshold at false positive
-    rate and selection frequency false positive rate feature selection.
+    Methods for calculating the selection frequency threshold at false positive rate
+    and selection frequency false positive rate feature selection.
+Depends: 
+    ggplot2
 Imports:
-    ggplot2,
     ggrepel
 Suggests:
     testthat,
     randomForest,
     ranger
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/wilsontom/forestControl
 BugReports: https://github.com/wilsontom/forestControl/issues
-RoxygenNote: 5.0.1
+RoxygenNote: 5.0.0

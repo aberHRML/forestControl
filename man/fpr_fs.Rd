@@ -13,7 +13,7 @@ fpr_fs(x)
 a \code{data.frame} of selection frequencies and their false positive rate
 }
 \description{
-Calculate the False Positive Rate (FPR) for every feature, using it's selection frequency
+Calculate the False Positive Rate (FPR) for each feature using it's selection frequency
 }
 \author{
 Jasen Finch \email{jsf9@aber.ac.uk}

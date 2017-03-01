@@ -6,10 +6,13 @@
 \usage{
 selecFreqs(x)
 }
+\arguments{
+\item{x}{a \code{randomForest} or \code{ranger} object}
+}
 \value{
-data.frame
+\code{data.frame} of variable selection frequencies
 }
 \description{
-Variable Selection Frequencies
+Extract variable selection frequencies from forest objects
 }
 

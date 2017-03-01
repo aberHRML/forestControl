@@ -1,6 +1,6 @@
-context("parameter-extraction")
+context("sft")
 
-test_that("parameter-extraction",{
+test_that("sft",{
 
 
   rf_no_forest <- randomForest::randomForest(iris[,-5], factor(iris$Species), ntree = 100, keep.forest = FALSE)
@@ -12,11 +12,11 @@ test_that("parameter-extraction",{
   ranger_w_forest <- ranger::ranger(factor(iris$Species) ~., iris[,-5], write.forest = TRUE, num.trees = 100)
 
 
-  expect_true(is.list(extract_params(rf_w_forest)))
-  expect_true(is.list(extract_params(ranger_w_forest)))
+  expect_true(is.list(sft(rf_w_forest, 0.1)))
+  expect_true(is.list(sft(ranger_w_forest, 0.1)))
 
-  expect_error(extract_params(rf_no_forest))
-  expect_error(extract_params(ranger_no_forest))
+  expect_error(is.list(rf_no_forest,0.1))
+  expect_error(is.list(ranger_no_forest,0.1))
 
 
 })

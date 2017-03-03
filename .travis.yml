@@ -1,0 +1,21 @@
+language: r
+warnings_are_errors: false
+sudo: required
+
+apt_packages:
+ - ggplot2
+ - ggrepel
+
+r_packages:
+ - testthat
+ - covr
+
+after_success:
+ - Rscript -e 'library(covr); codecov()'
+
+notifications:
+  email:
+   on_success: change
+   on_failure: change
+
+

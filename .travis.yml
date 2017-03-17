@@ -7,6 +7,8 @@ r_packages:
  - covr
  - ggplot2
  - ggrepel
+ - randomForest
+ - ranger
 
 after_success:
  - Rscript -e 'library(covr); codecov()'

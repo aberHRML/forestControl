@@ -1,7 +1,12 @@
 language: r
 warnings_are_errors: false
 sudo: required
+dist: trusty
 
+r:
+ - release
+ - devel
+ 
 r_packages:
  - testthat
  - covr

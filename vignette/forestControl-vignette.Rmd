@@ -1,14 +1,17 @@
 ---
 title: "forestControl"
 author: "Tom Wilson"
-output: html_document
+output:
+  html_document:
+    toc: true
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(magrittr)
 ```
 
-### Installation
+## Installation
 
 To install using `devtools`;
 
@@ -22,9 +25,9 @@ git clone https://github.com/wilsontom/forestControl
 R CMD build forestControl
 R CMD INSTALL forestControl_0.1.0.tar.gz
 ```
-##
 
-### Usage
+
+## Usage
 
 
 All the necessary parameters that are required for calculating selection frequency false positive rates are extracted using the `extract_params` function. `extract_params` is compatible with both `randomForest` and `ranger` objects.
@@ -56,7 +59,7 @@ ranger_params <- extract_params(ranger_model)
 
 ranger_params
 ```
-##
+
 
 The output of `extract_params` is a list of four elements. 
 
@@ -70,10 +73,35 @@ The output of `extract_params` is a list of four elements.
   
 
 
+## Selection Frequency Threshold
+
+Using the extracted parameters (above) the selection frequency threshold (__sft__) for a specified false positive rate (FPR) can be calculated using a specified false positive rate (__alpha__).
 
 
+```{r, sft}
+
+selec_freq_threshold <- sft(randomForest_model, alpha = 0.01)
+
+selec_freq_threshold
+```
+
+A `sft` of 230 for an `alpha` of 0.01 means that for a feature to have a 99 % chance of true selection then it must have a selection frequency of at least 230 across the forest. 
+
+The `plot_sft` function shows the selection frequency thresholds for a sequence of false positive rates.
+
+```{r, plot_sft}
+plot_sft(randomForest_model)
+```
 
 
+## False Positive Rate Feature Selection
 
+The `fpr_fs` funciton uses feature selection frequencies to determine te false positive rate of each feature. 
+
+```{r, fpr_fs}
+fpr_fs_res <- fpr_fs(randomForest_model)
+
+tibble::as.tibble(fpr_fs_res) %>% dplyr::arrange(-freq)
+```
 
 

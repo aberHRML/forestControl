@@ -8,7 +8,7 @@
 #' @export
 #' @importFrom ggplot2 ggplot aes geom_point theme_classic guides xlab ylab element_text unit theme
 
-sftPlot <- function(x)
+plot_sft <- function(x)
   {
 
   alpha_range <- seq(from  = 0.00, to = 0.95, by = 0.1)

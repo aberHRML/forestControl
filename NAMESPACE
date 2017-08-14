@@ -2,9 +2,9 @@
 
 export(extract_params)
 export(fpr_fs)
+export(plot_sft)
 export(selecFreqs)
 export(sft)
-export(sftPlot)
 importFrom(ggplot2,aes)
 importFrom(ggplot2,element_text)
 importFrom(ggplot2,geom_point)

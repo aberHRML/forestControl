@@ -15,4 +15,3 @@ selecFreqs(x)
 \description{
 Extract variable selection frequencies from forest objects
 }
-

@@ -48,6 +48,8 @@ prob_Cft <- function(Ft,N,Fn){
 
 
 #' @keywords internals
+#' @importFrom stats dbinom
+
 fpr_fs_calc <- function(k,Ft,Fn,Tr,K)
 {
 

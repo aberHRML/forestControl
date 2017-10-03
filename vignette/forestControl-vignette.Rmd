@@ -29,8 +29,20 @@ R CMD INSTALL forestControl_0.1.0.tar.gz
 
 ## Usage
 
+All the necessary parameters that are required for calculating selection frequency false positive rates can be extracted using the `extract_params` function. `extract_params` does not need to be explicitly executed; as it is already done so internally during the use of the selection frequency calculation functions. The folllowing is simply an exmaple showing the extracted parameters. 
 
-All the necessary parameters that are required for calculating selection frequency false positive rates are extracted using the `extract_params` function. `extract_params` is compatible with both `randomForest` and `ranger` objects.
+The output of `extract_params` is a list of four elements. 
+
+  - __`Fn`__ is the total number of features which are considered at each internal node. This parameter is commonly refered to as `mrty` in the random forest package.
+  
+  - __`Ft`__ is the total number of features present in the data set
+  
+  - __`K`__ is the average number of binary tests (internal nodes) across the entire forest. 
+  
+  - __`Tr`__ is the total number of trees in the forest
+  
+
+`extract_params` is compatible with both `randomForest` and `ranger` objects.
 
 ```{r, param_extract, random_forest}
 library(forestControl)
@@ -48,9 +60,7 @@ randomForest_parmas
 ```
 
 ```{r, param_extract, ranger}
-library(forestControl)
-
-# For randomForest models
+# For ranger models
 
 ranger_model <- ranger::ranger(factor(iris$Species) ~., iris[,-5],
                                   write.forest = TRUE, num.trees = 100)
@@ -61,16 +71,6 @@ ranger_params
 ```
 
 
-The output of `extract_params` is a list of four elements. 
-
-  - __`Fn`__ is the total number of features which can be potentially used for splitting at each internal node. This parameter is refered to as `mrty` in the random forest package.
-  
-  - __`Ft`__ is the total number of features present in the data set
-  
-  - __`K`__ is the average number of binary tests (internal nodes) across the entire forest. 
-  
-  - __`Tr`__ is the total number of trees in the forest
-  
 
 
 ## Selection Frequency Threshold
@@ -85,7 +85,7 @@ selec_freq_threshold <- sft(randomForest_model, alpha = 0.01)
 selec_freq_threshold
 ```
 
-A `sft` of 230 for an `alpha` of 0.01 means that for a feature to have a 99 % chance of true selection then it must have a selection frequency of at least 230 across the forest. 
+A `sft` of 230 for an `alpha` of 0.01 means that for a feature to have a 99 % chance of true selection then it must have a selection frequency greater than or equal to 230 across the forest. 
 
 The `plot_sft` function shows the selection frequency thresholds for a sequence of false positive rates.
 
@@ -96,7 +96,7 @@ plot_sft(randomForest_model)
 
 ## False Positive Rate Feature Selection
 
-The `fpr_fs` funciton uses feature selection frequencies to determine te false positive rate of each feature. 
+The `fpr_fs` funciton uses feature selection frequencies to determine te false positive rate of each feature. Instead of using a pre-defined __alpha__ value for the whole model; the false positive rate is determined simultaneously for each individual feature using the feature selection frequency and model parameters (Fn, Ft, K and Tr)
 
 ```{r, fpr_fs}
 fpr_fs_res <- fpr_fs(randomForest_model)

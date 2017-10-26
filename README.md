@@ -5,4 +5,10 @@
 > __Approximate False Positive Rate Control in Selection Frequency for Random Forest__
 
 
-See [forestControl-vignette](https://github.com/wilsontom/forestControl/tree/master/vignette/forestControl-vignette.html) for details on how to use.
+#### To install and view the vignette;
+
+```R`
+devtools::install_github('wilsontom/forestControl',build_vignettes = TRUE)
+
+vignette('forestControl-usage',package = 'forestControl')
+```

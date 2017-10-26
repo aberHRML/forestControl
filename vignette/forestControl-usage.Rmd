@@ -1,5 +1,5 @@
 ---
-title: "forestControl"
+title: "forestControl-usage"
 author: "Tom Wilson"
 output:
   html_document:

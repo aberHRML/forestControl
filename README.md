@@ -7,7 +7,7 @@
 
 #### To install and view the vignette;
 
-```R`
+```R
 devtools::install_github('wilsontom/forestControl',build_vignettes = TRUE)
 
 vignette('forestControl-usage',package = 'forestControl')

@@ -18,6 +18,7 @@ Suggests:
     testthat,
     randomForest,
     ranger,
+    dplyr,
     knitr,
     rmarkdown
 License: MIT + file LICENSE

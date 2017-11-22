@@ -96,7 +96,7 @@ plot_sft(randomForest_model)
 The `fpr_fs` funciton uses feature selection frequencies to determine te false positive rate of each feature. Instead of using a pre-defined __alpha__ value for the whole model; the false positive rate is determined simultaneously for each individual feature using the feature selection frequency and model parameters (Fn, Ft, K and Tr)
 
 ```{r, fpr_fs}
-suppressPackageStartupMessages(library('dplyr'))
+suppressPackageStartupMessages(library(dplyr))
 fpr_fs_res <- fpr_fs(randomForest_model)
 
 as_tibble(fpr_fs_res) %>% arrange(-freq)

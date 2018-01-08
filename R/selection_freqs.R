@@ -8,7 +8,7 @@
 #' @export
 
 
-selecFreqs <- function(x){
+selection_freqs <- function(x){
 
 if(is.rf(x) == FALSE & is.ranger(x) == FALSE){
     stop(deparse(substitute(x)), " is not a valid randomForest or ranger object", call. = FALSE)

@@ -13,7 +13,8 @@ Description: Approximate False Positve Rate Control in Selection Frequecy for
 Depends:
     ggplot2
 Imports:
-    ggrepel
+    ggrepel,
+    Rcpp
 Suggests:
     testthat,
     randomForest,
@@ -28,3 +29,4 @@ URL: https://github.com/wilsontom/forestControl
 BugReports: https://github.com/wilsontom/forestControl/issues
 RoxygenNote: 6.0.1
 VignetteBuilder: knitr
+LinkingTo: Rcpp

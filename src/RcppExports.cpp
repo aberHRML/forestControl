@@ -76,25 +76,18 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// testFun
-NumericVector testFun(int a);
-RcppExport SEXP _forestControl_testFun(SEXP aSEXP) {
+// sft_calc2
+NumericVector sft_calc2(double Ft, double Fn, double K, double Tr, double alpha);
+RcppExport SEXP _forestControl_sft_calc2(SEXP FtSEXP, SEXP FnSEXP, SEXP KSEXP, SEXP TrSEXP, SEXP alphaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< int >::type a(aSEXP);
-    rcpp_result_gen = Rcpp::wrap(testFun(a));
-    return rcpp_result_gen;
-END_RCPP
-}
-// test
-IntegerVector test(int a);
-RcppExport SEXP _forestControl_test(SEXP aSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< int >::type a(aSEXP);
-    rcpp_result_gen = Rcpp::wrap(test(a));
+    Rcpp::traits::input_parameter< double >::type Ft(FtSEXP);
+    Rcpp::traits::input_parameter< double >::type Fn(FnSEXP);
+    Rcpp::traits::input_parameter< double >::type K(KSEXP);
+    Rcpp::traits::input_parameter< double >::type Tr(TrSEXP);
+    Rcpp::traits::input_parameter< double >::type alpha(alphaSEXP);
+    rcpp_result_gen = Rcpp::wrap(sft_calc2(Ft, Fn, K, Tr, alpha));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -105,8 +98,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_forestControl_prob_Cft2", (DL_FUNC) &_forestControl_prob_Cft2, 2},
     {"_forestControl_SF_FPR", (DL_FUNC) &_forestControl_SF_FPR, 5},
     {"_forestControl_fpr_fs_calc2", (DL_FUNC) &_forestControl_fpr_fs_calc2, 5},
-    {"_forestControl_testFun", (DL_FUNC) &_forestControl_testFun, 1},
-    {"_forestControl_test", (DL_FUNC) &_forestControl_test, 1},
+    {"_forestControl_sft_calc2", (DL_FUNC) &_forestControl_sft_calc2, 5},
     {NULL, NULL, 0}
 };
 

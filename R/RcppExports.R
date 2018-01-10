@@ -21,11 +21,7 @@ fpr_fs_calc2 <- function(k, Ft, Fn, Tr, K) {
     .Call('_forestControl_fpr_fs_calc2', PACKAGE = 'forestControl', k, Ft, Fn, Tr, K)
 }
 
-testFun <- function(a) {
-    .Call('_forestControl_testFun', PACKAGE = 'forestControl', a)
-}
-
-test <- function(a) {
-    .Call('_forestControl_test', PACKAGE = 'forestControl', a)
+sft_calc2 <- function(Ft, Fn, K, Tr, alpha) {
+    .Call('_forestControl_sft_calc2', PACKAGE = 'forestControl', Ft, Fn, K, Tr, alpha)
 }
 

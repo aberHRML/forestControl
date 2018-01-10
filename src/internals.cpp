@@ -84,3 +84,33 @@ double fpr_fs_calc2(double k,double Ft,double Fn,double Tr,double K){
   p2 = round(p2,7);
   return p2[k + 1];
 }
+
+// [[Rcpp::export]]
+NumericVector sft_calc2(double Ft, double Fn, double K, double Tr, double alpha){
+
+  NumericVector max_val = pmax(NumericVector::create(20), Tr * K * 2/Ft);
+  NumericVector log_range =  log(seq_len(Tr*K));
+
+  NumericVector probs(max_val[0]);
+
+  for(int i = 0; i < max_val[0] + 1; ++i){
+    probs[i] = R::dbinom(i, K*Tr, prob_Cft2(Ft,Fn),0);
+  }
+
+  NumericVector cprobs_null = cumsum(probs);
+  LogicalVector sub(cprobs_null.size());
+
+  for(int i = 0; i < sub.size() + 1; ++i){
+    sub[i] = cprobs_null[i] <= alpha;
+  }
+  NumericVector ind = cprobs_null[sub];
+  double ind1 = ind[0];
+
+  double sft = ind1 + 1;
+
+  double probs_atsft = 1 - cprobs_null[ind1];
+
+  NumericVector r = NumericVector::create(sft,probs_atsft);
+
+  return r;
+}

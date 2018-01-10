@@ -2,7 +2,7 @@
 using namespace Rcpp;
 
 // [[Rcpp::export]]
-double nCm_ratio(int n1,int m1,int n2,int m2) {
+double nCm_ratio2(double n1,double m1,double n2,double m2) {
   if (m1 > n1){
     return(0);
   } else {
@@ -10,12 +10,12 @@ double nCm_ratio(int n1,int m1,int n2,int m2) {
       return(0);
     }
 
-    IntegerVector Sn1 = IntegerVector::create( 0, n1, NA_INTEGER, 3 );
-    IntegerVector Sm1 = IntegerVector::create( 0, m1, NA_INTEGER, 3 );
-    IntegerVector Snm1 = IntegerVector::create( 0, n1 - m1, NA_INTEGER, 3 );
-    IntegerVector Sn2 = IntegerVector::create( 0, n2, NA_INTEGER, 3 );
-    IntegerVector Sm2 = IntegerVector::create( 0, m2, NA_INTEGER, 3 );
-    IntegerVector Snm2 = IntegerVector::create( 0, n2 - m2, NA_INTEGER, 3 );
+    IntegerVector Sn1(n1);
+    IntegerVector Sm1(m1);
+    IntegerVector Snm1(n1 - m1);
+    IntegerVector Sn2(n2);
+    IntegerVector Sm2(m2);
+    IntegerVector Snm2(n2-m2);
 
     IntegerVector sRN1 = seq_along(Sn1);
     NumericVector lRN1 = log(sRN1);
@@ -48,8 +48,14 @@ double nCm_ratio(int n1,int m1,int n2,int m2) {
 }
 
 // [[Rcpp::export]]
-double prob_Ckt(int Ft, int N, int Fn, int K, int k){
-  double p_Ct = nCm_ratio(Ft - 1, Fn - 1, Ft, Fn);
+double prob_Ckt2(double Ft, double N, double Fn, double K, double k){
+  double p_Ct = nCm_ratio2(Ft - 1, Fn - 1, Ft, Fn);
   double p = p_Ct * R::dbinom(1,K,1/Fn,0);
+  return(p);
+}
+
+// [[Rcpp::export]]
+double prob_Cft2(double Ft,double Fn){
+  double p = prob_Ckt2(Ft, 0, Fn,1,1);
   return(p);
 }

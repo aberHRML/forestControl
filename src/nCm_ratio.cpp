@@ -17,23 +17,29 @@ double nCm_ratio(double n1,double m1,double n2,double m2) {
     IntegerVector Sm2 = IntegerVector::create( 0, m2, NA_INTEGER, 3 );
     IntegerVector Snm2 = IntegerVector::create( 0, n2 - m2, NA_INTEGER, 3 );
 
-    IntegerVector RN1 = seq_along(Sn1);
-    RN1 = sum(log(RN1));
+    IntegerVector sRN1 = seq_along(Sn1);
+    NumericVector lRN1 = log(sRN1);
+    double RN1 = sum(lRN1);
 
-    IntegerVector RM1 = seq_along(Sm1);
-    RM1 = sum(log(RM1));
+    IntegerVector sRM1 = seq_along(Sm1);
+    NumericVector lRM1 = log(sRM1);
+    double RM1 = sum(lRM1);
 
-    IntegerVector RNM1 = seq_along(Snm1);
-    RNM1 = sum(log(RNM1));
+    IntegerVector sRNM1 = seq_along(Snm1);
+    NumericVector lRNM1 = log(sRNM1);
+    double RNM1 = sum(lRNM1);
 
-    IntegerVector RN2 = seq_along(Sn2);
-    RN2 = sum(log(RN2));
+    IntegerVector sRN2 = seq_along(Sn2);
+    NumericVector lRN2 = log(sRN2);
+    double RN2 = sum(lRN2);
 
-    IntegerVector RM2 = seq_along(Sm2);
-    RM2 = sum(log(RM2));
+    IntegerVector sRM2 = seq_along(Sm2);
+    NumericVector lRM2 = log(sRM2);
+    double RM2 = sum(lRM2);
 
-    IntegerVector RNM2 = seq_along(Snm2);
-    RNM2 = sum(log(RNM2));
+    IntegerVector sRNM2 = seq_along(Snm2);
+    NumericVector lRNM2 = log(sRNM2);
+    double RNM2 = sum(lRNM2);
 
     double R = exp(RN1 - RM1 - RNM1 - RN2 + RM2 + RNM2);
 

@@ -5,3 +5,7 @@ nCm_ratio <- function(n1, m1, n2, m2) {
     .Call('_forestControl_nCm_ratio', PACKAGE = 'forestControl', n1, m1, n2, m2)
 }
 
+prob_Ckt <- function(Ft, N, Fn, K, k) {
+    .Call('_forestControl_prob_Ckt', PACKAGE = 'forestControl', Ft, N, Fn, K, k)
+}
+

@@ -2,7 +2,7 @@
 using namespace Rcpp;
 
 // [[Rcpp::export]]
-double nCm_ratio(double n1,double m1,double n2,double m2) {
+double nCm_ratio(int n1,int m1,int n2,int m2) {
   if (m1 > n1){
     return(0);
   } else {
@@ -45,4 +45,11 @@ double nCm_ratio(double n1,double m1,double n2,double m2) {
 
     return(R);
   }
+}
+
+// [[Rcpp::export]]
+double prob_Ckt(int Ft, int N, int Fn, int K, int k){
+  double p_Ct = nCm_ratio(Ft - 1, Fn - 1, Ft, Fn);
+  double p = p_Ct * R::dbinom(1,K,1/Fn,0);
+  return(p);
 }

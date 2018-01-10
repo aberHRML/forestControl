@@ -6,22 +6,38 @@
 using namespace Rcpp;
 
 // nCm_ratio
-double nCm_ratio(double n1, double m1, double n2, double m2);
+double nCm_ratio(int n1, int m1, int n2, int m2);
 RcppExport SEXP _forestControl_nCm_ratio(SEXP n1SEXP, SEXP m1SEXP, SEXP n2SEXP, SEXP m2SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< double >::type n1(n1SEXP);
-    Rcpp::traits::input_parameter< double >::type m1(m1SEXP);
-    Rcpp::traits::input_parameter< double >::type n2(n2SEXP);
-    Rcpp::traits::input_parameter< double >::type m2(m2SEXP);
+    Rcpp::traits::input_parameter< int >::type n1(n1SEXP);
+    Rcpp::traits::input_parameter< int >::type m1(m1SEXP);
+    Rcpp::traits::input_parameter< int >::type n2(n2SEXP);
+    Rcpp::traits::input_parameter< int >::type m2(m2SEXP);
     rcpp_result_gen = Rcpp::wrap(nCm_ratio(n1, m1, n2, m2));
+    return rcpp_result_gen;
+END_RCPP
+}
+// prob_Ckt
+double prob_Ckt(int Ft, int N, int Fn, int K, int k);
+RcppExport SEXP _forestControl_prob_Ckt(SEXP FtSEXP, SEXP NSEXP, SEXP FnSEXP, SEXP KSEXP, SEXP kSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type Ft(FtSEXP);
+    Rcpp::traits::input_parameter< int >::type N(NSEXP);
+    Rcpp::traits::input_parameter< int >::type Fn(FnSEXP);
+    Rcpp::traits::input_parameter< int >::type K(KSEXP);
+    Rcpp::traits::input_parameter< int >::type k(kSEXP);
+    rcpp_result_gen = Rcpp::wrap(prob_Ckt(Ft, N, Fn, K, k));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
     {"_forestControl_nCm_ratio", (DL_FUNC) &_forestControl_nCm_ratio, 4},
+    {"_forestControl_prob_Ckt", (DL_FUNC) &_forestControl_prob_Ckt, 5},
     {NULL, NULL, 0}
 };
 

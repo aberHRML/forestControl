@@ -10,40 +10,32 @@ double nCm_ratio2(double n1,double m1,double n2,double m2) {
       return(0);
     }
 
-    IntegerVector Sn1(n1);
-    IntegerVector Sm1(m1);
-    IntegerVector Snm1(n1 - m1);
-    IntegerVector Sn2(n2);
-    IntegerVector Sm2(m2);
-    IntegerVector Snm2(n2-m2);
+    IntegerVector sRN1 = seq_len(n1);
+    IntegerVector sRM1 = seq_len(m1);
+    IntegerVector sRNM1 = seq_len(n1 - m1);
+    IntegerVector sRN2 = seq_len(n2);
+    IntegerVector sRM2 = seq_len(m2);
+    IntegerVector sRNM2 = seq_len(n2-m2);
 
-    IntegerVector sRN1 = seq_along(Sn1);
     NumericVector lRN1 = log(sRN1);
     double RN1 = sum(lRN1);
 
-    IntegerVector sRM1 = seq_along(Sm1);
     NumericVector lRM1 = log(sRM1);
     double RM1 = sum(lRM1);
 
-    IntegerVector sRNM1 = seq_along(Snm1);
     NumericVector lRNM1 = log(sRNM1);
     double RNM1 = sum(lRNM1);
 
-    IntegerVector sRN2 = seq_along(Sn2);
     NumericVector lRN2 = log(sRN2);
     double RN2 = sum(lRN2);
 
-    IntegerVector sRM2 = seq_along(Sm2);
     NumericVector lRM2 = log(sRM2);
     double RM2 = sum(lRM2);
 
-    IntegerVector sRNM2 = seq_along(Snm2);
     NumericVector lRNM2 = log(sRNM2);
     double RNM2 = sum(lRNM2);
 
-    double R = exp(RN1 - RM1 - RNM1 - RN2 + RM2 + RNM2);
-
-    return(R);
+    return exp(RN1 - RM1 - RNM1 - RN2 + RM2 + RNM2);
   }
 }
 
@@ -51,11 +43,44 @@ double nCm_ratio2(double n1,double m1,double n2,double m2) {
 double prob_Ckt2(double Ft, double N, double Fn, double K, double k){
   double p_Ct = nCm_ratio2(Ft - 1, Fn - 1, Ft, Fn);
   double p = p_Ct * R::dbinom(1,K,1/Fn,0);
-  return(p);
+  return p;
 }
 
 // [[Rcpp::export]]
 double prob_Cft2(double Ft,double Fn){
-  double p = prob_Ckt2(Ft, 0, Fn,1,1);
-  return(p);
+  return prob_Ckt2(Ft, 0, Fn,1,1);
+}
+
+// [[Rcpp::export]]
+double SF_FPR(double k,double Ft,double Fn,double Tr,double K){
+  double p_Ct = nCm_ratio2(Ft - 1, Fn - 1, Ft, Fn);
+  double p = p_Ct * R::dbinom(1,1,1/Fn,0);
+  return R::dbinom(k,Tr*K,p,0);
+}
+
+
+// [[Rcpp::export]]
+double fpr_fs_calc2(double k,double Ft,double Fn,double Tr,double K){
+  int val;
+
+  if (k < 20) {
+    val = 20;
+  }else{
+    if (k < round(Tr * K * 2/Ft)) {
+      val = round(Tr * K * 2/Ft);
+    }else{
+      val = k;
+    }
+  }
+
+  NumericVector p(val+1);
+
+  for(int i = 0;i < val +1; ++i){
+    p[i] = SF_FPR(i,Ft,Fn,Tr,K);
+  }
+
+  NumericVector p1 = cumsum(rev(p));
+  NumericVector p2 = rev(p1);
+  p2 = round(p2,7);
+  return p2[k + 1];
 }

@@ -9,7 +9,23 @@ prob_Ckt2 <- function(Ft, N, Fn, K, k) {
     .Call('_forestControl_prob_Ckt2', PACKAGE = 'forestControl', Ft, N, Fn, K, k)
 }
 
-prob_Cft2 <- function(Ft, N, Fn) {
-    .Call('_forestControl_prob_Cft2', PACKAGE = 'forestControl', Ft, N, Fn)
+prob_Cft2 <- function(Ft, Fn) {
+    .Call('_forestControl_prob_Cft2', PACKAGE = 'forestControl', Ft, Fn)
+}
+
+SF_FPR <- function(k, Ft, Fn, Tr, K) {
+    .Call('_forestControl_SF_FPR', PACKAGE = 'forestControl', k, Ft, Fn, Tr, K)
+}
+
+fpr_fs_calc2 <- function(k, Ft, Fn, Tr, K) {
+    .Call('_forestControl_fpr_fs_calc2', PACKAGE = 'forestControl', k, Ft, Fn, Tr, K)
+}
+
+testFun <- function(a) {
+    .Call('_forestControl_testFun', PACKAGE = 'forestControl', a)
+}
+
+test <- function(a) {
+    .Call('_forestControl_test', PACKAGE = 'forestControl', a)
 }
 

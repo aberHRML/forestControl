@@ -10,10 +10,6 @@ Description: Approximate False Positve Rate Control in Selection Frequecy for
     Random Forest using the methods described by Ender Konukoglu and Melanie Ganz.
     Methods for calculating the selection frequency threshold at false positive rate
     and selection frequency false positive rate feature selection.
-Depends:
-    ggplot2
-Imports:
-    ggrepel
 Suggests:
     testthat,
     randomForest,

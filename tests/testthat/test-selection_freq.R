@@ -12,11 +12,11 @@ test_that("selection-freqs",{
   ranger_w_forest <- ranger::ranger(factor(iris$Species) ~., iris[,-5], write.forest = TRUE, num.trees = 100)
 
 
-  expect_true(is.data.frame(selecFreqs(rf_w_forest)))
-  expect_true(is.data.frame(selecFreqs(ranger_w_forest)))
+  expect_true(is.data.frame(selection_freqs(rf_w_forest)))
+  expect_true(is.data.frame(selection_freqs(ranger_w_forest)))
 
-  expect_error(selecFreqs(rf_no_forest))
-  expect_error(selecFreqs(ranger_no_forest))
+  expect_error(selection_freqs(rf_no_forest))
+  expect_error(selection_freqs(ranger_no_forest))
 
 
 })

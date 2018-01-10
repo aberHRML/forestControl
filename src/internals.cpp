@@ -52,7 +52,7 @@ double prob_Cft2(double Ft,double Fn){
 }
 
 // [[Rcpp::export]]
-double SF_FPR(double k,double Ft,double Fn,double Tr,double K){
+double SF_FPR2(double k,double Ft,double Fn,double Tr,double K){
   double p_Ct = nCm_ratio2(Ft - 1, Fn - 1, Ft, Fn);
   double p = p_Ct * R::dbinom(1,1,1/Fn,0);
   return R::dbinom(k,Tr*K,p,0);
@@ -60,7 +60,7 @@ double SF_FPR(double k,double Ft,double Fn,double Tr,double K){
 
 
 // [[Rcpp::export]]
-double fpr_fs_calc2(double k,double Ft,double Fn,double Tr,double K){
+NumericVector fpr_fs_calc2(double k,double Ft,double Fn,double Tr,double K){
   int val;
 
   if (k < 20) {
@@ -75,14 +75,16 @@ double fpr_fs_calc2(double k,double Ft,double Fn,double Tr,double K){
 
   NumericVector p(val+1);
 
-  for(int i = 0;i < val +1; ++i){
-    p[i] = SF_FPR(i,Ft,Fn,Tr,K);
+  for(int i = 0;i < val + 1; ++i){
+    p(i) = SF_FPR2(i,Ft,Fn,Tr,K);
   }
 
-  NumericVector p1 = cumsum(rev(p));
-  NumericVector p2 = rev(p1);
-  p2 = round(p2,7);
-  return p2[k + 1];
+  NumericVector p1 = rev(p);
+  // NumericVector p2 = cumsum(p1);
+  // NumericVector p3 = rev(p2);
+  // p3 = round(p3,7);
+  // return p3[k + 1];
+  return p;
 }
 
 // [[Rcpp::export]]
@@ -93,22 +95,25 @@ NumericVector sft_calc2(double Ft, double Fn, double K, double Tr, double alpha)
 
   NumericVector probs(max_val[0]);
 
-  for(int i = 0; i < max_val[0] + 1; ++i){
-    probs[i] = R::dbinom(i, K*Tr, prob_Cft2(Ft,Fn),0);
+  int mv = max_val[0];
+
+  for(int i = 0; i < mv; ++i){
+    double j = i + 1;
+    probs(i) = R::dbinom(j, K*Tr, prob_Cft2(Ft,Fn),0);
   }
 
   NumericVector cprobs_null = cumsum(probs);
   LogicalVector sub(cprobs_null.size());
 
-  for(int i = 0; i < sub.size() + 1; ++i){
-    sub[i] = cprobs_null[i] <= alpha;
+  for(int i = 0; i < sub.size(); ++i){
+    sub(i) = 1- cprobs_null(i) <= alpha;
   }
   NumericVector ind = cprobs_null[sub];
-  double ind1 = ind[0];
+  int ind1 = ind.size();
 
-  double sft = ind1 + 1;
+  double sft = round(ind1 + 1);
 
-  double probs_atsft = 1 - cprobs_null[ind1];
+  double probs_atsft = cprobs_null[ind1];
 
   NumericVector r = NumericVector::create(sft,probs_atsft);
 

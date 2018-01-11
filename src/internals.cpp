@@ -60,7 +60,7 @@ double SF_FPR2(double k,double Ft,double Fn,double Tr,double K){
 
 
 // [[Rcpp::export]]
-NumericVector fpr_fs_calc2(double k,double Ft,double Fn,double Tr,double K){
+double fpr_fs_calc2(double k,double Ft,double Fn,double Tr,double K){
   int val;
 
   if (k < 20) {
@@ -79,12 +79,10 @@ NumericVector fpr_fs_calc2(double k,double Ft,double Fn,double Tr,double K){
     p(i) = SF_FPR2(i,Ft,Fn,Tr,K);
   }
 
-  NumericVector p1 = rev(p);
-  // NumericVector p2 = cumsum(p1);
-  // NumericVector p3 = rev(p2);
-  // p3 = round(p3,7);
-  // return p3[k + 1];
-  return p;
+  NumericVector p1 = cumsum(rev(p));
+  NumericVector p2 = rev(p1);
+  p2 = round(p2,7);
+  return p2(k);
 }
 
 // [[Rcpp::export]]
@@ -106,12 +104,12 @@ NumericVector sft_calc2(double Ft, double Fn, double K, double Tr, double alpha)
   LogicalVector sub(cprobs_null.size());
 
   for(int i = 0; i < sub.size(); ++i){
-    sub(i) = 1- cprobs_null(i) <= alpha;
+    sub(i) = 1 - cprobs_null(i) <= alpha;
   }
   NumericVector ind = cprobs_null[sub];
   int ind1 = ind.size();
 
-  double sft = round(ind1 + 1);
+  double sft = round(ind1 + 2);
 
   double probs_atsft = cprobs_null[ind1];
 

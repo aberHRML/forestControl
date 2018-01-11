@@ -5,50 +5,9 @@
 
 using namespace Rcpp;
 
-// nCm_ratio2
-double nCm_ratio2(double n1, double m1, double n2, double m2);
-RcppExport SEXP _forestControl_nCm_ratio2(SEXP n1SEXP, SEXP m1SEXP, SEXP n2SEXP, SEXP m2SEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< double >::type n1(n1SEXP);
-    Rcpp::traits::input_parameter< double >::type m1(m1SEXP);
-    Rcpp::traits::input_parameter< double >::type n2(n2SEXP);
-    Rcpp::traits::input_parameter< double >::type m2(m2SEXP);
-    rcpp_result_gen = Rcpp::wrap(nCm_ratio2(n1, m1, n2, m2));
-    return rcpp_result_gen;
-END_RCPP
-}
-// prob_Ckt2
-double prob_Ckt2(double Ft, double N, double Fn, double K, double k);
-RcppExport SEXP _forestControl_prob_Ckt2(SEXP FtSEXP, SEXP NSEXP, SEXP FnSEXP, SEXP KSEXP, SEXP kSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< double >::type Ft(FtSEXP);
-    Rcpp::traits::input_parameter< double >::type N(NSEXP);
-    Rcpp::traits::input_parameter< double >::type Fn(FnSEXP);
-    Rcpp::traits::input_parameter< double >::type K(KSEXP);
-    Rcpp::traits::input_parameter< double >::type k(kSEXP);
-    rcpp_result_gen = Rcpp::wrap(prob_Ckt2(Ft, N, Fn, K, k));
-    return rcpp_result_gen;
-END_RCPP
-}
-// prob_Cft2
-double prob_Cft2(double Ft, double Fn);
-RcppExport SEXP _forestControl_prob_Cft2(SEXP FtSEXP, SEXP FnSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< double >::type Ft(FtSEXP);
-    Rcpp::traits::input_parameter< double >::type Fn(FnSEXP);
-    rcpp_result_gen = Rcpp::wrap(prob_Cft2(Ft, Fn));
-    return rcpp_result_gen;
-END_RCPP
-}
-// SF_FPR
-double SF_FPR(double k, double Ft, double Fn, double Tr, double K);
-RcppExport SEXP _forestControl_SF_FPR(SEXP kSEXP, SEXP FtSEXP, SEXP FnSEXP, SEXP TrSEXP, SEXP KSEXP) {
+// fpr_fs_calc
+double fpr_fs_calc(double k, double Ft, double Fn, double Tr, double K);
+RcppExport SEXP _forestControl_fpr_fs_calc(SEXP kSEXP, SEXP FtSEXP, SEXP FnSEXP, SEXP TrSEXP, SEXP KSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -57,28 +16,13 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< double >::type Fn(FnSEXP);
     Rcpp::traits::input_parameter< double >::type Tr(TrSEXP);
     Rcpp::traits::input_parameter< double >::type K(KSEXP);
-    rcpp_result_gen = Rcpp::wrap(SF_FPR(k, Ft, Fn, Tr, K));
+    rcpp_result_gen = Rcpp::wrap(fpr_fs_calc(k, Ft, Fn, Tr, K));
     return rcpp_result_gen;
 END_RCPP
 }
-// fpr_fs_calc2
-double fpr_fs_calc2(double k, double Ft, double Fn, double Tr, double K);
-RcppExport SEXP _forestControl_fpr_fs_calc2(SEXP kSEXP, SEXP FtSEXP, SEXP FnSEXP, SEXP TrSEXP, SEXP KSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< double >::type k(kSEXP);
-    Rcpp::traits::input_parameter< double >::type Ft(FtSEXP);
-    Rcpp::traits::input_parameter< double >::type Fn(FnSEXP);
-    Rcpp::traits::input_parameter< double >::type Tr(TrSEXP);
-    Rcpp::traits::input_parameter< double >::type K(KSEXP);
-    rcpp_result_gen = Rcpp::wrap(fpr_fs_calc2(k, Ft, Fn, Tr, K));
-    return rcpp_result_gen;
-END_RCPP
-}
-// sft_calc2
-NumericVector sft_calc2(double Ft, double Fn, double K, double Tr, double alpha);
-RcppExport SEXP _forestControl_sft_calc2(SEXP FtSEXP, SEXP FnSEXP, SEXP KSEXP, SEXP TrSEXP, SEXP alphaSEXP) {
+// sft_calc
+NumericVector sft_calc(double Ft, double Fn, double K, double Tr, double alpha);
+RcppExport SEXP _forestControl_sft_calc(SEXP FtSEXP, SEXP FnSEXP, SEXP KSEXP, SEXP TrSEXP, SEXP alphaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -87,18 +31,14 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< double >::type K(KSEXP);
     Rcpp::traits::input_parameter< double >::type Tr(TrSEXP);
     Rcpp::traits::input_parameter< double >::type alpha(alphaSEXP);
-    rcpp_result_gen = Rcpp::wrap(sft_calc2(Ft, Fn, K, Tr, alpha));
+    rcpp_result_gen = Rcpp::wrap(sft_calc(Ft, Fn, K, Tr, alpha));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_forestControl_nCm_ratio2", (DL_FUNC) &_forestControl_nCm_ratio2, 4},
-    {"_forestControl_prob_Ckt2", (DL_FUNC) &_forestControl_prob_Ckt2, 5},
-    {"_forestControl_prob_Cft2", (DL_FUNC) &_forestControl_prob_Cft2, 2},
-    {"_forestControl_SF_FPR", (DL_FUNC) &_forestControl_SF_FPR, 5},
-    {"_forestControl_fpr_fs_calc2", (DL_FUNC) &_forestControl_fpr_fs_calc2, 5},
-    {"_forestControl_sft_calc2", (DL_FUNC) &_forestControl_sft_calc2, 5},
+    {"_forestControl_fpr_fs_calc", (DL_FUNC) &_forestControl_fpr_fs_calc, 5},
+    {"_forestControl_sft_calc", (DL_FUNC) &_forestControl_sft_calc, 5},
     {NULL, NULL, 0}
 };
 

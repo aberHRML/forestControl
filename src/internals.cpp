@@ -1,8 +1,7 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
-// [[Rcpp::export]]
-double nCm_ratio2(double n1,double m1,double n2,double m2) {
+double nCm_ratio(double n1,double m1,double n2,double m2) {
   if (m1 > n1){
     return(0);
   } else {
@@ -39,28 +38,25 @@ double nCm_ratio2(double n1,double m1,double n2,double m2) {
   }
 }
 
-// [[Rcpp::export]]
-double prob_Ckt2(double Ft, double N, double Fn, double K, double k){
-  double p_Ct = nCm_ratio2(Ft - 1, Fn - 1, Ft, Fn);
+double prob_Ckt(double Ft, double N, double Fn, double K, double k){
+  double p_Ct = nCm_ratio(Ft - 1, Fn - 1, Ft, Fn);
   double p = p_Ct * R::dbinom(1,K,1/Fn,0);
   return p;
 }
 
-// [[Rcpp::export]]
-double prob_Cft2(double Ft,double Fn){
-  return prob_Ckt2(Ft, 0, Fn,1,1);
+double prob_Cft(double Ft,double Fn){
+  return prob_Ckt(Ft, 0, Fn,1,1);
 }
 
-// [[Rcpp::export]]
-double SF_FPR2(double k,double Ft,double Fn,double Tr,double K){
-  double p_Ct = nCm_ratio2(Ft - 1, Fn - 1, Ft, Fn);
+double SF_FPR(double k,double Ft,double Fn,double Tr,double K){
+  double p_Ct = nCm_ratio(Ft - 1, Fn - 1, Ft, Fn);
   double p = p_Ct * R::dbinom(1,1,1/Fn,0);
   return R::dbinom(k,Tr*K,p,0);
 }
 
 
 // [[Rcpp::export]]
-double fpr_fs_calc2(double k,double Ft,double Fn,double Tr,double K){
+double fpr_fs_calc(double k,double Ft,double Fn,double Tr,double K){
   int val;
 
   if (k < 20) {
@@ -76,17 +72,16 @@ double fpr_fs_calc2(double k,double Ft,double Fn,double Tr,double K){
   NumericVector p(val+1);
 
   for(int i = 0;i < val + 1; ++i){
-    p(i) = SF_FPR2(i,Ft,Fn,Tr,K);
+    p(i) = SF_FPR(i,Ft,Fn,Tr,K);
   }
 
   NumericVector p1 = cumsum(rev(p));
   NumericVector p2 = rev(p1);
-  p2 = round(p2,7);
   return p2(k);
 }
 
 // [[Rcpp::export]]
-NumericVector sft_calc2(double Ft, double Fn, double K, double Tr, double alpha){
+NumericVector sft_calc(double Ft, double Fn, double K, double Tr, double alpha){
 
   NumericVector max_val = pmax(NumericVector::create(20), Tr * K * 2/Ft);
   NumericVector log_range =  log(seq_len(Tr*K));
@@ -97,21 +92,21 @@ NumericVector sft_calc2(double Ft, double Fn, double K, double Tr, double alpha)
 
   for(int i = 0; i < mv; ++i){
     double j = i + 1;
-    probs(i) = R::dbinom(j, K*Tr, prob_Cft2(Ft,Fn),0);
+    probs(i) = R::dbinom(j, K*Tr, prob_Cft(Ft,Fn),0);
   }
 
   NumericVector cprobs_null = cumsum(probs);
   LogicalVector sub(cprobs_null.size());
 
   for(int i = 0; i < sub.size(); ++i){
-    sub(i) = 1 - cprobs_null(i) <= alpha;
+    sub(i) = 1 - cprobs_null(i) >= alpha;
   }
   NumericVector ind = cprobs_null[sub];
-  int ind1 = ind.size();
+  int ind1 = ind.size() + 1;
 
-  double sft = round(ind1 + 2);
+  double sft = round(ind1 + 1);
 
-  double probs_atsft = cprobs_null[ind1];
+  double probs_atsft = 1 - cprobs_null[ind1 - 1];
 
   NumericVector r = NumericVector::create(sft,probs_atsft);
 

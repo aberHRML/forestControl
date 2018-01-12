@@ -20,7 +20,7 @@ fpr_fs <- function(x)
   }
 
   params <- extract_params(x)
-  freq <- selecFreqs(x)
+  freq <- selection_freqs(x)
   fpr <- lapply(freq$freq, function(x){fpr_fs_calc(k = x,Ft = params$Ft, Fn = params$Fn, Tr = params$Tr, K = params$K)})
 
   feat_sel <- data.frame(freq, fpr = unlist(fpr))

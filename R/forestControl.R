@@ -6,5 +6,7 @@
 #'
 #' @docType package
 #' @name forestControl-package
+#' @useDynLib forestControl
+#' @importFrom Rcpp sourceCpp
 
 NULL

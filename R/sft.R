@@ -16,5 +16,6 @@ sft <- function(x, alpha)
   {
   params <- extract_params(x)
   sft_res <- sft_calc(Ft = params$Ft,Fn = params$Fn, K = params$K, Tr = params$Tr, alpha = alpha)
+  sft_res <- list(sft = round(sft_res[1]), prob = sft_res[2])
   return(sft_res)
   }

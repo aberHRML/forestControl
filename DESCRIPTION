@@ -10,6 +10,8 @@ Description: Approximate False Positve Rate Control in Selection Frequecy for
     Random Forest using the methods described by Ender Konukoglu and Melanie Ganz.
     Methods for calculating the selection frequency threshold at false positive rate
     and selection frequency false positive rate feature selection.
+Imports:
+    Rcpp
 Suggests:
     testthat,
     randomForest,
@@ -24,3 +26,4 @@ URL: https://github.com/wilsontom/forestControl
 BugReports: https://github.com/wilsontom/forestControl/issues
 RoxygenNote: 6.0.1
 VignetteBuilder: knitr
+LinkingTo: Rcpp

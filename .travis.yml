@@ -2,6 +2,7 @@ language: r
 warnings_are_errors: false
 sudo: required
 dist: trusty
+group: deprecated-2017Q4
 
 r:
  - release

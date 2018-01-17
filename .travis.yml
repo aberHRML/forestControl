@@ -1,18 +1,14 @@
 language: r
 warnings_are_errors: false
-sudo: required
-dist: trusty
-group: deprecated-2017Q4
+sudo: true
 
 r:
  - release
  - devel
- 
+
 r_packages:
  - testthat
  - covr
- - ggplot2
- - ggrepel
  - randomForest
  - ranger
 
@@ -23,5 +19,3 @@ notifications:
   email:
    on_success: change
    on_failure: change
-
-

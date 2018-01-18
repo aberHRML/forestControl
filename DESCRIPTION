@@ -15,15 +15,11 @@ Imports:
 Suggests:
     testthat,
     randomForest,
-    ranger,
-    dplyr,
-    knitr,
-    rmarkdown
-License: MIT + file LICENSE
+    ranger
+License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/wilsontom/forestControl
 BugReports: https://github.com/wilsontom/forestControl/issues
 RoxygenNote: 6.0.1
-VignetteBuilder: knitr
 LinkingTo: Rcpp

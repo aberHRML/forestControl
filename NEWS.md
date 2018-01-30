@@ -1,5 +1,8 @@
 ### NEWS
 
+#### V0.1.1
+
+- `internals` now implemented in C++ _via_ `Rcpp` thanks to Dr Jasen Finch (@jasenfinch)
 
 #### v0.1.0
 

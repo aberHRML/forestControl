@@ -1,6 +1,6 @@
 #' Extract forest parameters
 #'
-#' For a forest model (randomForest or ranger) extract the parameters needed to calculate an approximate selection frequency threshold
+#' For a `randoForest` or `ranger` classification object, extract the parameters needed to calculate an approximate selection frequency threshold
 #'
 #' @param x a `randomForest` or `ranger` object
 #' @return a list of four elements

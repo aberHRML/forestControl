@@ -13,5 +13,5 @@ selection_freqs(x)
 \code{data.frame} of variable selection frequencies
 }
 \description{
-Extract variable selection frequencies from forest objects
+Extract variable selection frequencies from \code{randomForest} and \code{ranger} model objects
 }

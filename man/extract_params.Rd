@@ -12,14 +12,14 @@ extract_params(x)
 \value{
 a list of four elements
 \describe{
-    \item{\strong{Fn}}{The number of features considered at each internal node (mtry)}
-    \item{\strong{Ft}}{The total number of features in the data set}
-    \item{\strong{K}}{The average number of binary tests/internal nodes across the enitre forest}
-    \item{\strong{Tr}}{The total number of trees in the forest}
- }
+\item{\strong{Fn}}{The number of features considered at each internal node (mtry)}
+\item{\strong{Ft}}{The total number of features in the data set}
+\item{\strong{K}}{The average number of binary tests/internal nodes across the enitre forest}
+\item{\strong{Tr}}{The total number of trees in the forest}
+}
 }
 \description{
-For a forest model (randomForest or ranger) extract the parameters needed to calculate an approximate selection frequency threshold
+For a \code{randoForest} or \code{ranger} classification object, extract the parameters needed to calculate an approximate selection frequency threshold
 }
 \author{
 Tom Wilson \email{tpw2@aber.ac.uk}

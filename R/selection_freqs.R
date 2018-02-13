@@ -1,6 +1,6 @@
 #' Variable Selection Frequencies
 #'
-#' Extract variable selection frequencies from forest objects
+#' Extract variable selection frequencies from `randomForest` and `ranger` model objects
 #'
 #' @param x a `randomForest` or `ranger` object
 #' @return `data.frame` of variable selection frequencies

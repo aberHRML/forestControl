@@ -5,10 +5,15 @@
 > __Approximate False Positive Rate Control in Selection Frequency for Random Forest__
 
 
-#### To install and view the vignette;
+#### To install using devtools
 
 ```R
-devtools::install_github('wilsontom/forestControl',build_vignettes = TRUE)
-
-vignette('forestControl-usage',package = 'forestControl')
+devtools::install_github('wilsontom/forestControl')
 ```
+
+
+`forestControl` is an implementation of methods described by Ender Konukoglu and Melanie Ganz in the following publication (available [here](http://arxiv.org/abs/1410.2838))
+
+>__Konukoglu, E., & Ganz, M. (2014). Approximate False Positive Rate Control in Selection Frequency for Random Forest. arXiv.org, cs.LG, 1–26.__
+
+If you find `forestControl` useful please cite the above publication.

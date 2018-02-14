@@ -14,8 +14,8 @@ sft(x, alpha)
 \value{
 a list of two elements
 \describe{
-    \item{sft}{the selection frequency threshold}
-    \item{probs_atsft}{the esimated false positive rate}
+\item{sft}{the selection frequency threshold}
+\item{probs_atsft}{the esimated false positive rate}
 }
 }
 \description{

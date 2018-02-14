@@ -1,8 +1,8 @@
 #' Extract forest parameters
 #'
-#' For a forest model (randomForest or ranger) extract the parameters needed to calculate an approximate selection frequency threshold
+#' For a `randoForest` or `ranger` classification object, extract the parameters needed to calculate an approximate selection frequency threshold
 #'
-#' @param x a \code{randomForest} or \code{ranger} object
+#' @param x a `randomForest` or `ranger` object
 #' @return a list of four elements
 #' \describe{
 #'     \item{\strong{Fn}}{The number of features considered at each internal node (mtry)}

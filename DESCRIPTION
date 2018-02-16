@@ -17,7 +17,7 @@ Suggests:
     testthat,
     randomForest,
     ranger
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/aberHRML/forestControl

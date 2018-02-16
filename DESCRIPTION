@@ -4,12 +4,12 @@ Title: Approximate False Positive Rate Control in Selection Frequency for Random
     Forest
 Version: 0.1.1
 Date: 2018-02-13
-Author: Tom Wilson <tpw2@aber.ac.uk>,
-    Jasen Finch <jsf9@aer.ac.uk>
-Maintainer: Tom Wilson <tpw2@aber.ac.uk>
+Authors@R: c(
+    person("Tom", "Wilson", , "tpw2@aber.ac.uk", c("aut", "cre")),
+    person("Jasen", "Finch", , "jsf9@aber.ac.uk", "aut"))
 Description: Approximate False Positve Rate Control in Selection Frequecy for
     Random Forest using the methods described by Ender Konukoglu and Melanie Ganz.
-    Methods for calculating the selection frequency threshold at false positive rate
+    Methods for calculating the selection frequency threshold at false positive rates
     and selection frequency false positive rate feature selection.
 Imports:
     Rcpp

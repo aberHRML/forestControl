@@ -4,3 +4,4 @@ NOTES.md
 appveyor.yml
 .travis.yml
 README.md
+cran-comments.md

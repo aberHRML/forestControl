@@ -19,7 +19,7 @@ a list of four elements
 }
 }
 \description{
-For a \code{randoForest} or \code{ranger} classification object, extract the parameters needed to calculate an approximate selection frequency threshold
+For a \code{randomForest} or \code{ranger} classification object, extract the parameters needed to calculate an approximate selection frequency threshold
 }
 \author{
 Tom Wilson \email{tpw2@aber.ac.uk}

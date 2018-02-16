@@ -15,3 +15,11 @@ selection_freqs(x)
 \description{
 Extract variable selection frequencies from \code{randomForest} and \code{ranger} model objects
 }
+\examples{
+library(randomForest)
+data(iris)
+iris.rf <- randomForest(iris[,-5], iris[,5], forest = TRUE)
+
+iris.freqs <- selection_freqs(iris.rf)
+print(iris.freqs)
+}

@@ -1,8 +1,7 @@
 
 #' @keywords internals
-is.rf <- function(x)inherits(x, "randomForest")
-
+is.rf <- function(x)inherits(x, 'randomForest')
 
 
 #' @keywords internals
-is.ranger <- function(x)inherits(x, "ranger")
+is.ranger <- function(x)inherits(x, 'ranger')

@@ -7,6 +7,13 @@
 #'
 #' @author Jasen Finch \email{jsf9@@aber.ac.uk}
 #' @export
+#' @examples
+#' library(randomForest)
+#' data(iris)
+#' iris.rf <- randomForest(iris[,-5], iris[,5], forest = TRUE)
+#'
+#' iris.features <- fpr_fs(iris.rf)
+#' print(iris.features)
 
 fpr_fs <- function(x)
   {

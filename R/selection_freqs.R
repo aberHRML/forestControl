@@ -6,6 +6,13 @@
 #' @return `data.frame` of variable selection frequencies
 #'
 #' @export
+#' @examples
+#' library(randomForest)
+#' data(iris)
+#' iris.rf <- randomForest(iris[,-5], iris[,5], forest = TRUE)
+#'
+#' iris.freqs <- selection_freqs(iris.rf)
+#' print(iris.freqs)
 
 
 selection_freqs <- function(x){

@@ -15,6 +15,14 @@ a \code{data.frame} of selection frequencies and their false positive rate
 \description{
 Calculate the False Positive Rate (FPR) for each feature using it's selection frequency
 }
+\examples{
+library(randomForest)
+data(iris)
+iris.rf <- randomForest(iris[,-5], iris[,5], forest = TRUE)
+
+iris.features <- fpr_fs(iris.rf)
+print(iris.features)
+}
 \author{
 Jasen Finch \email{jsf9@aber.ac.uk}
 }

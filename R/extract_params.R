@@ -4,16 +4,21 @@
 #'
 #' @param x a `randomForest` or `ranger` object
 #' @return a list of four elements
-#' \describe{
-#'     \item{\strong{Fn}}{The number of features considered at each internal node (mtry)}
-#'     \item{\strong{Ft}}{The total number of features in the data set}
-#'     \item{\strong{K}}{The average number of binary tests/internal nodes across the enitre forest}
-#'     \item{\strong{Tr}}{The total number of trees in the forest}
-#'  }
+#' * __Fn__ The number of features considered at each internal node (mtry)
+#' * __Ft__ The total number of features in the data set
+#' * __K__ The average number of binary tests/internal nodes across the enitre forest
+#' * __Tr__ The total number of trees in the forest
+#'
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
-
+#' @examples
+#' library(randomForest)
+#' data(iris)
+#' iris.rf <- randomForest(iris[,-5], iris[,5], forest = TRUE)
+#'
+#' iris.params <- extract_params(iris.rf)
+#' print(iris.params)
 
 extract_params <- function(x)
   {

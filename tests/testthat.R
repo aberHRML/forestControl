@@ -1,4 +1,4 @@
 library(testthat)
 library(forestControl)
 
-test_check("forestControl")
+test_check('forestControl')

@@ -7,8 +7,8 @@ Date: 2018-02-16
 Authors@R: c(
     person("Tom", "Wilson", , "tpw2@aber.ac.uk", c("aut", "cre")),
     person("Jasen", "Finch", , "jsf9@aber.ac.uk", "aut"))
-Description: Approximate False Positve Rate Control in Selection Frequecy for
-    Random Forest using the methods described by Ender Konukoglu and Melanie Ganz.
+Description: Approximate false positive rate control in selection frequency for
+    random forest using the methods described by Ender Konukoglu and Melanie Ganz (2015) <arXiv:1410.2838>.
     Methods for calculating the selection frequency threshold at false positive rates
     and selection frequency false positive rate feature selection.
 Imports:

@@ -6,11 +6,18 @@
 
 > __Approximate False Positive Rate Control in Selection Frequency for Random Forest__
 
+### Installation
 
-#### To install using devtools
+This package can be installed from CRAN by:
 
 ```R
-devtools::install_github('wilsontom/forestControl')
+install.packages('forestControl')
+```
+
+To install the development version of this package, use devtools:
+
+```R
+devtools::install_github('aberHRML/forestControl')
 ```
 
 

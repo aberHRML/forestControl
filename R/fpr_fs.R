@@ -6,6 +6,7 @@
 #' @return a `data.frame` of selection frequencies and their false positive rate
 #'
 #' @author Jasen Finch \email{jsf9@@aber.ac.uk}
+#' @importFrom purrr map_dbl
 #' @export
 #' @examples
 #' library(randomForest)
@@ -28,9 +29,9 @@ fpr_fs <- function(x)
 
   params <- extract_params(x)
   freq <- selection_freqs(x)
-  fpr <- lapply(freq$freq, function(x){fpr_fs_calc(k = x,Ft = params$Ft, Fn = params$Fn, Tr = params$Tr, K = params$K)})
+  fpr <- map_dbl(freq$freq,fpr_fs_calc,Ft = params$Ft, Fn = params$Fn, Tr = params$Tr, K = params$K)
 
-  feat_sel <- data.frame(freq, fpr = unlist(fpr))
+  feat_sel <- data.frame(freq, fpr = fpr)
 
   return(feat_sel)
   }

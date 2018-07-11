@@ -3,7 +3,7 @@
 #' Extract variable selection frequencies from `randomForest` and `ranger` model objects
 #'
 #' @param x a `randomForest` or `ranger` object
-#' @return `data.frame` of variable selection frequencies
+#' @return `tibble` of variable selection frequencies
 #'
 #' @export
 #' @importFrom tibble tibble

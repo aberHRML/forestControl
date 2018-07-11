@@ -3,7 +3,7 @@
 #' Calculate the False Positive Rate (FPR) for each feature using it's selection frequency
 #'
 #' @param x a `randomForest` or `ranger` object
-#' @return a `data.frame` of selection frequencies and their false positive rate
+#' @return a `tibble` of selection frequencies and their false positive rate
 #'
 #' @author Jasen Finch \email{jsf9@@aber.ac.uk}
 #' @importFrom purrr map_dbl

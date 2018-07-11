@@ -13,7 +13,10 @@ Description: Approximate false positive rate control in selection frequency for
     and selection frequency false positive rate feature selection.
 Imports:
     Rcpp,
-    purrr
+    purrr,
+    tibble,
+    magrittr,
+    dplyr
 Suggests:
     testthat,
     randomForest,

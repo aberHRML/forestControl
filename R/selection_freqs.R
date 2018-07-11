@@ -6,6 +6,7 @@
 #' @return `data.frame` of variable selection frequencies
 #'
 #' @export
+#' @importFrom tibble tibble
 #' @examples
 #' library(randomForest)
 #' data(iris)
@@ -30,8 +31,7 @@ if(class(x) == "randomForest"){
   var <- numeric(length(x$forest$ncat))
   var_freqs <- table(x$forest$bestvar[x$forest$bestvar > 0])
   var[as.numeric(names(var_freqs))] <- var_freqs
-  names(var) <- names(x$forest$xlevels)
-  var_df <- data.frame(freq = var)
+  var_df <- tibble(variable = names(x$forest$xlevels),freq = var)
 }
 
 
@@ -39,8 +39,7 @@ if(class(x) == "ranger"){
   var <- numeric(length(x$forest$independent.variable.names))
   var_freqs <- table(unlist(x$forest$split.varIDs)[unlist(x$forest$split.varIDs) > 0])
   var[as.numeric(names(var_freqs))] <- var_freqs
-  names(var) <- x$forest$independent.variable.names
-  var_df <- data.frame(freq = var)
+  var_df <- tibble(variable = x$forest$independent.variable.names,freq = var)
 }
 
 

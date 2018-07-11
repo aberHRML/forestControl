@@ -9,4 +9,4 @@
 #' @useDynLib forestControl
 #' @importFrom Rcpp sourceCpp
 
-NULL
+globalVariables('.')

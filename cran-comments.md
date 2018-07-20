@@ -1,15 +1,15 @@
 ### Test Environments
 
-* ubuntu-gcc-devel (r-hub)
-* ubuntu-gcc-release (r-hub)
-* debian-gcc-devel (r-hub)
-* windows-x86_64-release (r-hub)
-* windows-x86_64-devel (r-hub)
+* ubuntu-gcc r-devel (r-hub)
+* ubuntu-gcc r-release (r-hub)
+* debian-gcc r-devel (r-hub)
+* windows server 2008 R2 SP1 r-release (r-hub)
+* windows server 2008 R2 SP1 r-devel (r-hub)
 
-* ubuntu 16.04, R 3.4.3 (local-install)
-* ubuntu 14.04, R release (Travis CI)
-* ubuntu 14.04, R devel (Travis CI)
-* Windows Server 2012 R2 x64, R release (AppVeyor CI)
+* ubuntu 18.04 LTS, R-3.4.4 (local-install)
+* ubuntu 14.04, r-release (Travis CI)
+* ubuntu 14.04, r-devel (Travis CI)
+* Windows Server 2012 R2 x64, r-release (AppVeyor CI)
 
 ### R CMD check results
 

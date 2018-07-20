@@ -1,5 +1,11 @@
 ### NEWS
 
+#### V0.2.0
+
+- Significant reduction in compute time for calculating false positive rates by sampling only unique selection frequencies
+
+- Addition of `tidy` tools (dplyr, tibble, magrittr) 
+
 #### V0.1.1
 
 - `internals` now implemented in C++ _via_ `Rcpp` thanks to Dr Jasen Finch (@jasenfinch)

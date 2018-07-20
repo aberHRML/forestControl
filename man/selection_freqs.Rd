@@ -10,7 +10,7 @@ selection_freqs(x)
 \item{x}{a \code{randomForest} or \code{ranger} object}
 }
 \value{
-\code{data.frame} of variable selection frequencies
+\code{tibble} of variable selection frequencies
 }
 \description{
 Extract variable selection frequencies from \code{randomForest} and \code{ranger} model objects

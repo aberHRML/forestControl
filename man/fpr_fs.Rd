@@ -10,7 +10,7 @@ fpr_fs(x)
 \item{x}{a \code{randomForest} or \code{ranger} object}
 }
 \value{
-a \code{data.frame} of selection frequencies and their false positive rate
+a \code{tibble} of selection frequencies and their false positive rate
 }
 \description{
 Calculate the False Positive Rate (FPR) for each feature using it's selection frequency

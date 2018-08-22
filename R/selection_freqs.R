@@ -27,7 +27,7 @@ if(is.null(x$forest)){
 }
 
 
-if(class(x) == "randomForest"){
+if("randomForest" %in% class(x)){
   var <- numeric(length(x$forest$ncat))
   var_freqs <- table(x$forest$bestvar[x$forest$bestvar > 0])
   var[as.numeric(names(var_freqs))] <- var_freqs
@@ -35,7 +35,7 @@ if(class(x) == "randomForest"){
 }
 
 
-if(class(x) == "ranger"){
+if("ranger" %in% class(x)){
   var <- numeric(length(x$forest$independent.variable.names))
   var_freqs <- table(unlist(x$forest$split.varIDs)[unlist(x$forest$split.varIDs) > 0])
   var[as.numeric(names(var_freqs))] <- var_freqs

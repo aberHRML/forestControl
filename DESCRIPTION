@@ -2,7 +2,7 @@ Package: forestControl
 Type: Package
 Title: Approximate False Positive Rate Control in Selection Frequency for Random
     Forest
-Version: 0.2.0
+Version: 0.2.1
 Date: 2018-07-20
 Authors@R: c(
     person("Tom", "Wilson", , "tpw2@aber.ac.uk", c("aut", "cre")),

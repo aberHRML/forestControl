@@ -19,22 +19,23 @@
 #' print(iris.features)
 
 fpr_fs <- function(x)
-  {
-
-  if(is.rf(x) == FALSE & is.ranger(x) == FALSE){
-    stop(deparse(substitute(x)), " is not a valid randomForest or ranger object", call. = FALSE)
-  }
-
-  if(is.null(x$forest)){
-    stop(deparse(substitute(x)), " has no forest", call. = FALSE)
-  }
-
+{
   params <- extract_params(x)
   freq <- selection_freqs(x)
-  fpr <- map_dbl(unique(freq$freq),fpr_fs_calc,Ft = params$Ft, Fn = params$Fn, Tr = params$Tr, K = params$K) %>%
-  {tibble(freq = unique(freq$freq),fpr = .)}
+  fpr <-
+    map_dbl(
+      unique(freq$freq),
+      fpr_fs_calc,
+      Ft = params$Ft,
+      Fn = params$Fn,
+      Tr = params$Tr,
+      K = params$K
+    ) %>%
+    {
+      tibble(freq = unique(freq$freq), fpr = .)
+    }
 
-  feat_sel <- left_join(freq,fpr, by = "freq")
+  feat_sel <- left_join(freq, fpr, by = "freq")
 
   return(feat_sel)
-  }
+}

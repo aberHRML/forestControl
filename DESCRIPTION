@@ -3,7 +3,7 @@ Type: Package
 Title: Approximate False Positive Rate Control in Selection Frequency for Random
     Forest
 Version: 0.2.1
-Date: 2018-07-20
+Date: 2019-07-24
 Authors@R: c(
     person("Tom", "Wilson", , "tpw2@aber.ac.uk", c("aut", "cre")),
     person("Jasen", "Finch", , "jsf9@aber.ac.uk", "aut"))
@@ -20,7 +20,8 @@ Imports:
 Suggests:
     testthat,
     randomForest,
-    ranger
+    ranger,
+    parsnip
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

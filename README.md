@@ -8,6 +8,7 @@
 
 ### Installation
 
+
 This package can be installed from CRAN by:
 
 ```R
@@ -17,7 +18,7 @@ install.packages('forestControl')
 To install the development version of this package, use devtools:
 
 ```R
-devtools::install_github('aberHRML/forestControl')
+remotes::install_github('aberHRML/forestControl')
 ```
 
 

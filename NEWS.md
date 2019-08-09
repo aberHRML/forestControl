@@ -1,5 +1,11 @@
 ### NEWS
 
+#### V0.2.1
+
+- Support of `randomForest` and `ranger` models which have been created using `parsnip`
+
+- Fix class checking for when formula notation is used in randomForest
+
 #### V0.2.0
 
 - Significant reduction in compute time for calculating false positive rates by sampling only unique selection frequencies

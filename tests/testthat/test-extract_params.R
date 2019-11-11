@@ -13,11 +13,11 @@ library(parsnip)
 
 
   model_parsnip_ranger <-
-    rand_forest() %>% set_engine("ranger", importance = 'impurity') %>%
+    rand_forest(mode = 'classification') %>% set_engine("ranger", importance = 'impurity') %>%
     fit(Species ~ ., iris)
 
   model_parsnip_rf <-
-    rand_forest() %>% set_engine("randomForest") %>%
+    rand_forest(mode = 'classification') %>% set_engine("randomForest") %>%
     fit(Species ~ ., iris)
 
 

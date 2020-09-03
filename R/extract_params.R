@@ -35,7 +35,9 @@ extract_params <- function(x)
   }
 
 
+
   if(any(class(x) == "randomForest")){
+
           Fn <- x$mtry
           Fe <- nrow(x$importance)
           K <- round(mean(apply(x$forest$nodestatus,2,function(x)(length(which(x == 1))))), digits = 0)
@@ -43,7 +45,9 @@ extract_params <- function(x)
 
   }
 
+
   if(any(class(x) == "ranger")){
+
           Fn <- x$mtry
           Fe <- x$num.independent.variables
           K <- round(mean(sapply(x$forest$split.varIDs, function(x)(length(which(x != 0))))), digits = 0)

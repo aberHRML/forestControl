@@ -34,6 +34,7 @@ selection_freqs <- function(x) {
   }
 
 
+
   if(any(class(x) == "randomForest")){
     var <- numeric(length(x$forest$ncat))
     var_freqs <- table(x$forest$bestvar[x$forest$bestvar > 0])
@@ -51,6 +52,7 @@ selection_freqs <- function(x) {
       tibble(variable = x$forest$independent.variable.names,
              freq = var)
   }
+
 
 
   if (class(x)[1] == '_ranger' & class(x)[2] == 'model_fit') {

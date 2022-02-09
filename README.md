@@ -4,6 +4,8 @@
 
 [![CRAN](https://www.r-pkg.org/badges/version/forestControl)](https://cran.r-project.org/web/packages/forestControl/index.html)
 ![total downloads](https://cranlogs.r-pkg.org/badges/grand-total/forestControl?color=red)
+
+[![GitHub](https://img.shields.io/github/v/release/aberHRML/forestControl?color=brightgreen&label=GitHub%20Version)](https://github.com/aberHRML/forestControl/releases)
 > __Approximate False Positive Rate Control in Selection Frequency for Random Forest__
 
 ### Installation

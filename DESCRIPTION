@@ -2,8 +2,8 @@ Package: forestControl
 Type: Package
 Title: Approximate False Positive Rate Control in Selection Frequency for Random
     Forest
-Version: 0.2.1
-Date: 2019-11-18
+Version: 0.2.2
+Date: 2022-02-09
 Authors@R: c(
     person("Tom", "Wilson", , "tpw2@aber.ac.uk", c("aut", "cre"), comment = c(ORCID = "0000-0003-3112-4682")),
     person("Jasen", "Finch", , "jsf9@aber.ac.uk", "aut"))
@@ -26,10 +26,9 @@ Suggests:
     rmarkdown
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 URL: https://github.com/aberHRML/forestControl
 BugReports: https://github.com/aberHRML/forestControl/issues
-RoxygenNote: 6.0.1
+RoxygenNote: 7.1.1
 LinkingTo: Rcpp
 Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr

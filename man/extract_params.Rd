@@ -7,7 +7,7 @@
 extract_params(x)
 }
 \arguments{
-\item{x}{a \code{randomForest} or \code{ranger} object}
+\item{x}{a \code{randomForest}, \code{ranger} or \code{parsnip} object}
 }
 \value{
 a list of four elements

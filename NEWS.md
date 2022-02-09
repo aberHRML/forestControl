@@ -1,5 +1,9 @@
 ### NEWS
 
+#### V0.2.2
+
+- Minor housekeeping
+
 #### V0.2.1
 
 - Support of `randomForest` and `ranger` models which have been created using `parsnip`

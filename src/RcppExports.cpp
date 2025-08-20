@@ -5,6 +5,11 @@
 
 using namespace Rcpp;
 
+#ifdef RCPP_USE_GLOBAL_ROSTREAM
+Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
+Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
+#endif
+
 // fpr_fs_calc
 double fpr_fs_calc(double k, double Ft, double Fn, double Tr, double K);
 RcppExport SEXP _forestControl_fpr_fs_calc(SEXP kSEXP, SEXP FtSEXP, SEXP FnSEXP, SEXP TrSEXP, SEXP KSEXP) {

@@ -2,6 +2,7 @@
 % Please edit documentation in R/forestControl.R
 \docType{package}
 \name{forestControl-package}
+\alias{-package}
 \alias{forestControl-package}
 \title{False Positive Rate Control in Selection Frequency for Random Forest}
 \description{

@@ -1,5 +1,9 @@
 ### NEWS
 
+#### v0.2.3
+
+- Minor housekeeping
+
 #### V0.2.2
 
 - Minor housekeeping

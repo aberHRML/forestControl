@@ -1,6 +1,6 @@
 # forestControl
 
-[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable) [![R-CMD-check](https://github.com/aberHRML/forestControl/workflows/R-CMD-check/badge.svg)](https://github.com/aberHRML/forestControl/actions) [![codecov](https://codecov.io/gh/aberHRML/forestControl/branch/master/graph/badge.svg)](https://codecov.io/gh/aberHRML/forestControl) ![License](https://img.shields.io/badge/license-MIT-blue.svg "MIT") [![DOI](https://zenodo.org/badge/81975326.svg)](https://zenodo.org/badge/latestdoi/81975326)
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable) [![R-CMD-check.yaml](https://github.com/aberHRML/forestControl/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/aberHRML/forestControl/actions/workflows/R-CMD-check.yaml) [![codecov](https://codecov.io/gh/aberHRML/forestControl/branch/master/graph/badge.svg)](https://codecov.io/gh/aberHRML/forestControl) ![License](https://img.shields.io/badge/license-MIT-blue.svg "MIT") [![DOI](https://zenodo.org/badge/81975326.svg)](https://zenodo.org/badge/latestdoi/81975326)
 
 [![CRAN](https://www.r-pkg.org/badges/version/forestControl)](https://cran.r-project.org/web/packages/forestControl/index.html)
 ![total downloads](https://cranlogs.r-pkg.org/badges/grand-total/forestControl?color=red)
